@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jee
+       http://www.springframework.org/schema/jee/spring-jee.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <!--lookup data source from jndi-->
+    <jee:jndi-lookup id="dataSource"
+                     jndi-name="jdbc/dbsec"
+                     resource-ref="true"
+                     expected-type="javax.sql.DataSource"/>
+
+    <!--define entity manager factory bean-->
+    <util:properties id="jpaProperties">
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
+    </util:properties>
+    <bean id="persistenceProvider"
+          class="org.hibernate.jpa.HibernatePersistenceProvider" />
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:packagesToScan="com.alimate.model"
+          p:dataSource-ref="dataSource"
+          p:persistenceProvider-ref="persistenceProvider"
+          p:jpaProperties-ref="jpaProperties" />
+    <jpa:repositories base-package="com.alimate.dao" />
+
+    <!--define jdbc template bean-->
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate"
+          p:dataSource-ref="dataSource" />
+</beans>

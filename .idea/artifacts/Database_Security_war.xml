@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Database Security:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="DBSec-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Database Security:war exploded" />
+    </root>
+  </artifact>
+</component>

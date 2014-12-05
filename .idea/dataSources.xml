@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3291979606">
+    <data-source source="LOCAL" name="Database Security" uuid="75a7155a-96eb-47d9-8422-8a88dc4484fc">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/dbsec</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Amazon AWS" uuid="4cd8bc49-1d7f-4a73-8b38-267bfd350cf1">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-221-249-3.compute-1.amazonaws.com:5432/d6bv3s98jpsmb7?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
