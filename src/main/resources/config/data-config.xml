@@ -20,14 +20,11 @@
                      jndi-name="jdbc/dbsec"
                      resource-ref="true"
                      expected-type="javax.sql.DataSource"/>-->
-    <bean class="java.net.URI" id="dbUrl">
-        <constructor-arg value="${DATABASE_URL}"/>
-    </bean>
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
         <property name="driverClassName" value="${database.driverClassName}"/>
-        <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + @dbUrl.getPath() }"/>
-        <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-        <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+        <property name="url" value="jdbc:postgresql:/ec2-54-163-248-144.compute-1.amazonaws.com:5432/db4n4acc2n20bi"/>
+        <property name="username" value="zlcxodoimkgxrk"/>
+        <property name="password" value="NjxhTcfRqLhVe-dIxODi0gTbLY"/>
     </bean>
 
     <!--define entity manager factory bean-->
