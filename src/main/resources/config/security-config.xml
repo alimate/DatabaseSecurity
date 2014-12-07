@@ -17,7 +17,7 @@
         <intercept-url pattern="/login" access="isAnonymous()"/>
         <intercept-url pattern="/logout" access="isAuthenticated()" />
 
-        <intercept-url pattern="/console/**" access="hasRole('PERM_RUN_QUERY')" />
+        <!--<intercept-url pattern="/console/**" access="hasRole('PERM_RUN_QUERY')" />-->
 
         <intercept-url pattern="/users/add" access="hasRole('PERM_ADD_USER')" />
         <intercept-url pattern="/users/edit/**" access="hasRole('PERM_EDIT_USER')" />
