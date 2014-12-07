@@ -16,16 +16,10 @@
        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <!--lookup data source from jndi-->
-    <!--<jee:jndi-lookup id="dataSource"
+    <jee:jndi-lookup id="dataSource"
                      jndi-name="jdbc/dbsec"
                      resource-ref="true"
-                     expected-type="javax.sql.DataSource"/>-->
-    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://ec2-54-163-248-144.compute-1.amazonaws.com:5432/db4n4acc2n20bi"/>
-        <property name="username" value="zlcxodoimkgxrk"/>
-        <property name="password" value="NjxhTcfRqLhVe-dIxODi0gTbLY"/>
-    </bean>
+                     expected-type="javax.sql.DataSource"/>
 
     <!--define entity manager factory bean-->
     <util:properties id="jpaProperties">
